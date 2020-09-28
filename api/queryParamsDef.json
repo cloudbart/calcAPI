@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "calcQueryParams",
+        "title": "calcApiQueryParams",
         "version": "v1"
     },
     "paths": {
