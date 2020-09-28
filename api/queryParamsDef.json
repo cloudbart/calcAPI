@@ -1,0 +1,82 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "calcQueryParams",
+        "version": "v1"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "parameters": [{
+                        "name": "operand1",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operand2",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operator",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {}
+                    },
+                    "400": {
+                        "description": "400 response",
+                        "content": {}
+                    }
+                },
+                "x-amazon-apigateway-request-validator": "Validate query string parameters and headers",
+                "x-amazon-apigateway-integration": {
+                    "type": "aws",
+                    "uri": {
+                        "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path//2015-03-31/functions/${calcFunction.Arn}/invocations"
+                    },
+                    "responses": {
+                        "default": {
+                            "statusCode": "200"
+                        },
+                        "400.*": {
+                            "statusCode": "400"
+                        }
+                    },
+                    "requestTemplates": {
+                        "application/json": "{\r\n    \"a\":  \"$input.params('operand1')\",\r\n    \"b\":  \"$input.params('operand2')\", \r\n    \"op\": \"$input.params('operator')\"   \r\n}"
+                    },
+                    "passthroughBehavior": "when_no_templates",
+                    "httpMethod": "POST"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Empty": {
+                "title": "Empty Schema",
+                "type": "object"
+            }
+        }
+    },
+    "x-amazon-apigateway-request-validators": {
+        "Validate query string parameters and headers": {
+            "validateRequestParameters": true,
+            "validateRequestBody": false
+        }
+    }
+}
