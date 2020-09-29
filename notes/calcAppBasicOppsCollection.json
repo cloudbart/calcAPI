@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "eb1fb290-5000-46fd-9c43-8252ff245f4d",
+		"_postman_id": "3028b8da-c713-4c83-abba-82c361d3baa5",
 		"name": "calcApp basic operations",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,11 +11,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f673d573-850c-466c-bbe2-6ab2d49f29d4",
+						"id": "97eb791a-52cd-4443-b690-5943af13deec",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"});\r",
+							"console.log('Version: ', pm.response.json().InvokedVersion)"
 						],
 						"type": "text/javascript"
 					}
@@ -54,11 +55,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e94aabdb-4b2e-49c1-b9ed-b0ad1418e55c",
+						"id": "c8986391-8d3c-4b5b-8ffe-8ea32fec2dbc",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"});\r",
+							"console.log('Version: ', pm.response.json().InvokedVersion)"
 						],
 						"type": "text/javascript"
 					}
@@ -97,11 +99,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f7a7a572-54aa-4a4b-9f40-7ca26804fa06",
+						"id": "c54b1dc8-fa4e-4cff-8026-e0fae14c08c8",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"});\r",
+							"console.log('Version: ', pm.response.json().InvokedVersion)"
 						],
 						"type": "text/javascript"
 					}
@@ -140,11 +143,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "194dff93-afcf-4de9-881a-babed97286ac",
+						"id": "9599a71c-6d04-4667-ab4e-73fa35e18a0e",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"});\r",
+							"console.log('Version: ', pm.response.json().InvokedVersion)"
 						],
 						"type": "text/javascript"
 					}
