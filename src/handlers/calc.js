@@ -41,5 +41,6 @@ exports.handler = function(event, context, callback) {
     response.a = Number(event.a);
     response.b = Number(event.b);
     response.op = event.op;
+    response.c = result.c;
     callback(null, response);
 };
