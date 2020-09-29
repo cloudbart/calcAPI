@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "eb1fb290-5000-46fd-9c43-8252ff245f4d",
+		"name": "calcApp basic operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET + (%2b)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f673d573-850c-466c-bbe2-6ab2d49f29d4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}?operand1=2&operand2=2&operator=%2b",
+					"host": [
+						"{{URL}}"
+					],
+					"query": [
+						{
+							"key": "operand1",
+							"value": "2"
+						},
+						{
+							"key": "operand2",
+							"value": "2"
+						},
+						{
+							"key": "operator",
+							"value": "%2b"
+						}
+					]
+				},
+				"description": "addition using + (%2b)"
+			},
+			"response": []
+		},
+		{
+			"name": "GET -",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e94aabdb-4b2e-49c1-b9ed-b0ad1418e55c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}?operand1=2&operand2=2&operator=-",
+					"host": [
+						"{{URL}}"
+					],
+					"query": [
+						{
+							"key": "operand1",
+							"value": "2"
+						},
+						{
+							"key": "operand2",
+							"value": "2"
+						},
+						{
+							"key": "operator",
+							"value": "-"
+						}
+					]
+				},
+				"description": "subtraction using -"
+			},
+			"response": []
+		},
+		{
+			"name": "GET *",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7a7a572-54aa-4a4b-9f40-7ca26804fa06",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}?operand1=2&operand2=2&operator=*",
+					"host": [
+						"{{URL}}"
+					],
+					"query": [
+						{
+							"key": "operand1",
+							"value": "2"
+						},
+						{
+							"key": "operand2",
+							"value": "2"
+						},
+						{
+							"key": "operator",
+							"value": "*"
+						}
+					]
+				},
+				"description": "multiplication using *"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "194dff93-afcf-4de9-881a-babed97286ac",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}?operand1=2&operand2=2&operator=/",
+					"host": [
+						"{{URL}}"
+					],
+					"query": [
+						{
+							"key": "operand1",
+							"value": "2"
+						},
+						{
+							"key": "operand2",
+							"value": "2"
+						},
+						{
+							"key": "operator",
+							"value": "/"
+						}
+					]
+				},
+				"description": "division using /"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
