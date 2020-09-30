@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "3028b8da-c713-4c83-abba-82c361d3baa5",
 		"name": "calcApp basic operations",
+		"description": "Basic functionality test for SAM calculator app",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
