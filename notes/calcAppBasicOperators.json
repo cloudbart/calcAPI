@@ -13,7 +13,9 @@
 					"script": {
 						"id": "97eb791a-52cd-4443-b690-5943af13deec",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"let invokeVersion = pm.response.json().InvokedVersion;\r",
+							"\r",
+							"pm.test('Version: ' + invokeVersion + ' - Status code is 200', function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"console.log('Version: ', pm.response.json().InvokedVersion)"
@@ -57,7 +59,9 @@
 					"script": {
 						"id": "c8986391-8d3c-4b5b-8ffe-8ea32fec2dbc",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"let invokeVersion = pm.response.json().InvokedVersion;\r",
+							"\r",
+							"pm.test('Version: ' + invokeVersion + ' - Status code is 200', function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"console.log('Version: ', pm.response.json().InvokedVersion)"
@@ -101,7 +105,9 @@
 					"script": {
 						"id": "c54b1dc8-fa4e-4cff-8026-e0fae14c08c8",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"let invokeVersion = pm.response.json().InvokedVersion;\r",
+							"\r",
+							"pm.test('Version: ' + invokeVersion + ' - Status code is 200', function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"console.log('Version: ', pm.response.json().InvokedVersion)"
@@ -145,7 +151,9 @@
 					"script": {
 						"id": "9599a71c-6d04-4667-ab4e-73fa35e18a0e",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"let invokeVersion = pm.response.json().InvokedVersion;\r",
+							"\r",
+							"pm.test('Version: ' + invokeVersion + ' - Status code is 200', function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"console.log('Version: ', pm.response.json().InvokedVersion)"
@@ -156,31 +164,4 @@
 			],
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}?operand1=2&operand2=2&operator=/",
-					"host": [
-						"{{URL}}"
-					],
-					"query": [
-						{
-							"key": "operand1",
-							"value": "2"
-						},
-						{
-							"key": "operand2",
-							"value": "2"
-						},
-						{
-							"key": "operator",
-							"value": "/"
-						}
-					]
-				},
-				"description": "division using /"
-			},
-			"response": []
-		}
-	],
-	"protocolProfileBehavior": {}
-}
+		
