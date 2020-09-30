@@ -164,4 +164,31 @@
 			],
 			"request": {
 				"method": "GET",
-		
+				"header": [],
+				"url": {
+					"raw": "{{URL}}?operand1=2&operand2=2&operator=/",
+					"host": [
+						"{{URL}}"
+					],
+					"query": [
+						{
+							"key": "operand1",
+							"value": "2"
+						},
+						{
+							"key": "operand2",
+							"value": "2"
+						},
+						{
+							"key": "operator",
+							"value": "/"
+						}
+					]
+				},
+				"description": "division using /"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
