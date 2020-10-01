@@ -46,7 +46,7 @@
                 "x-amazon-apigateway-integration": {
                     "type": "aws",
                     "uri": {
-                        "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path//2015-03-31/functions/${calcFunction.arn}/invocations"
+                        "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path//2015-03-31/functions/${calcFunction.Arn}/invocations"
                     },
                     "responses": {
                         "default": {
