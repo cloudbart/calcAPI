@@ -31,7 +31,7 @@ exports.handler = function(event, context, callback) {
             result.c = result.b === 0 ? NaN : Number(event.a) / Number(event.b);
             break;
         default:
-            return callback(new Error("400 Invalid Operator"));
+            return callback(new Error("404 Invalid Operator"));
     }
     console.log('Calculation results:', JSON.stringify(result, null, 2));
     
