@@ -13,6 +13,8 @@ Resources:
       Name: calcAppApi
       OpenApiVersion: 3.0.1
       StageName: calcStage
+      CanarySetting:
+        PercentTraffic: 10
   calcFunction:
     Type: AWS::Serverless::Function
     Properties:
