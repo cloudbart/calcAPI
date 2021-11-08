@@ -9,10 +9,11 @@ Resources:
         'Fn::Transform':
           Name: 'AWS::Include'
           Parameters:
-            Location: "./api/queryParamsDef.json"
+            Location: "./api/calcApiDefinition.json"
       Name: calcAppApi
       OpenApiVersion: 3.0.1
-      StageName: calcStage
+      StageName: v1
+      TracingEnabled: true
   calcFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -22,9 +23,21 @@ Resources:
       Timeout: 100
       Description: A Lambda function which performs some calculations
       Events:
-        calcApiEvent:
+        calcApiGETEvent:
           Type: Api
           Properties:
             Path: /
+            Method: get
+            RestApiId: !Ref calcApi
+        calcApiPOSTEvent:
+          Type: Api
+          Properties:
+            Path: /
+            Method: post
+            RestApiId: !Ref calcApi
+        calcApiPathEvent:
+          Type: Api
+          Properties:
+            Path: /{a}/{b}/{op}
             Method: get
             RestApiId: !Ref calcApi
