@@ -19,15 +19,19 @@ exports.handler = function(event, context, callback) {
 
     switch (event.op) {
         case "+":
+        case "add":
             result.c = result.a + result.b;
             break;
         case "-":
+        case "sub":
             result.c = result.a - result.b;
             break;
         case "*":
+        case "mul":
             result.c = result.a * result.b;
             break;
         case "/":
+        case "div":
             result.c = result.b === 0 ? NaN : Number(event.a) / Number(event.b);
             break;
         default:

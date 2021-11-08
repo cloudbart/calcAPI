@@ -64,7 +64,10 @@
                     },
                     "responses": {
                         "default": {
-                            "statusCode": "200"
+                            "statusCode": "200",
+                            "responseTemplates": {
+                                "application/json": "#set($inputRoot = $input.path('$'))\n{\n  \"input\" : {\n    \"a\" : $inputRoot.a,\n    \"b\" : $inputRoot.b,\n    \"op\" : \"$inputRoot.op\"\n  },\n  \"output\" : {\n    \"c\" : $inputRoot.c\n  }\n}"
+                            }
                         },
                         "40.*": {
                             "statusCode": "400"
@@ -84,14 +87,16 @@
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [{
-                    "in": "body",
-                    "name": "Input",
-                    "required": true,
-                    "schema": {
-                        "$ref": "#/components/schemas/Input"
-                    }
-                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Input"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "200 response",
@@ -105,6 +110,141 @@
                         "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path//2015-03-31/functions/${calcFunction.Arn}/invocations"
                     },
                     "passthroughBehavior": "when_no_match",
+                    "httpMethod": "POST",
+                    "responses": {
+                        "default": {
+                            "statusCode": "200",
+                            "responseTemplates": {
+                                "application/json": "#set($inputRoot = $input.path('$'))\n{\n  \"input\" : {\n    \"a\" : $inputRoot.a,\n    \"b\" : $inputRoot.b,\n    \"op\" : \"$inputRoot.op\"\n  },\n  \"output\" : {\n    \"c\" : $inputRoot.c\n  }\n}"
+                            }
+                        }
+                    },
+                    "type": "aws"
+                }
+            }
+        },
+        "/{a}": {
+            "x-amazon-apigateway-any-method": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "a",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "404": {
+                        "description": "404 response"
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                    "requestTemplates": {
+                        "application/json": "{\"statusCode\": 200}"
+                    },
+                    "passthroughBehavior": "when_no_match",
+                    "responses": {
+                        "default": {
+                            "statusCode": "404",
+                            "responseTemplates": {
+                                "application/json": "{ \"Message\" : \"Can't $context.httpMethod $context.resourcePath\" }"
+                            }
+                        }
+                    },
+                    "type": "mock"
+                }
+            }
+        },
+        "/{a}/{b}": {
+            "x-amazon-apigateway-any-method": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "a",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "b",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "404 response"
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                    "requestTemplates": {
+                        "application/json": "{\"statusCode\": 200}"
+                    },
+                    "passthroughBehavior": "when_no_match",
+                    "responses": {
+                        "default": {
+                            "statusCode": "404",
+                            "responseTemplates": {
+                                "application/json": "{ \"Message\" : \"Can't $context.httpMethod $context.resourcePath\" }"
+                            }
+                        }
+                    },
+                    "type": "mock"
+                }
+            }
+        },
+        "/{a}/{b}/{op}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "a",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "b",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "op",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "schema": {
+                            "$ref": "#components/schemas/Result"
+                        }
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                    "requestTemplates": {
+                        "application/json": "#set($inputRoot = $input.path('$'))\n{\n  \"a\" : $input.params('a'),\n  \"b\" : $input.params('b'),\n  \"op\" : \"$input.params('op')\"\n}"
+                    },
+                    "uri": {
+                        "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path//2015-03-31/functions/${calcFunction.Arn}/invocations"
+                    },
+                    "passthroughBehavior": "when_no_templates",
                     "httpMethod": "POST",
                     "responses": {
                         "default": {
