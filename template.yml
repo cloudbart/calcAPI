@@ -26,13 +26,13 @@ Resources:
         calcApiGETEvent:
           Type: Api
           Properties:
-            Path: /
+            Path: /get
             Method: get
             RestApiId: !Ref calcApi
         calcApiPOSTEvent:
           Type: Api
           Properties:
-            Path: /
+            Path: /post
             Method: post
             RestApiId: !Ref calcApi
         calcApiPathEvent:
