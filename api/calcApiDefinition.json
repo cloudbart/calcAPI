@@ -11,7 +11,7 @@
         }
     },
     "paths": {
-        "/": {
+        "/get": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -80,6 +80,8 @@
                     "httpMethod": "POST"
                 }
             },
+        },
+        "/post": {
             "post": {
                 "consumes": [
                     "application/json"
