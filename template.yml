@@ -22,7 +22,7 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A Lambda function which performs some calculations
-      TracingEnabled: true
+      Tracing: true
       Events:
         calcApiGETEvent:
           Type: Api
